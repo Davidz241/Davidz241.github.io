@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	const videos = thumbs.map(t => t.dataset.video).filter(Boolean);
 	let idx = 0;
 	let intervalId = null;
-	const AUTO_MS = 3500;
+	const AUTO_MS = 35000;
 
 	function openAt(i){
 		idx = i % videos.length;

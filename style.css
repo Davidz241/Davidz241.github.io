@@ -29,8 +29,7 @@ h2,
 h3,
 h4,
 h5,
-h6 
-{
+h6 {
     font-weight: 600;
     margin: 0 0 .5rem
 }
@@ -65,21 +64,21 @@ img {
 
 .site-header {
     padding: .75rem 0
-    
-    
 }
-.site-header{
-  background:rgba(29, 0, 75, 0.7);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color:#2a55aa;
-  
+
+.site-header {
+
+    background: rgba(29, 0, 75, 0.7);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #2a55aa;
+
 }
 
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .logo {
@@ -118,6 +117,7 @@ img {
 }
 
 .hero h1 {
+    align-self: auto;
     font-size: 2.25rem
 }
 
@@ -127,40 +127,44 @@ img {
 }
 
 .btn {
-  /* Layout & Form */
-  padding: 12px 24px;
-  border-radius: 8px; /* Abgerundete Ecken */
-  border: none;
-  cursor: pointer;
-  
-  /* Schrift */
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  
-  /* Farben & Übergänge */
-  background-color: #240077; /* Dein Blau */
-  color: #ffffff;
-  transition: all 0.3s ease; /* Sanfte Animation */
+    /* Layout & Form */
+    padding: 12px 24px;
+    border-radius: 8px;
+    /* Abgerundete Ecken */
+    border: none;
+    cursor: pointer;
+
+    /* Schrift */
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    /* Farben & Übergänge */
+    background-color: #240077;
+    /* Dein Blau */
+    color: #ffffff;
+    transition: all 0.3s ease;
+    /* Sanfte Animation */
 }
 
 /* Hover-Effekt: Wenn man mit der Maus darüberfährt */
 .btn:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px); /* Hebe-Effekt */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Schatten für Tiefe */
+    background-color: #000000;
+    transform: translateY(-2px);
+    /* Hebe-Effekt */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Schatten für Tiefe */
 }
 
 /* Active-Effekt: Beim Klicken */
 .btn:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .about,
 .projects,
-.contact 
-{
+.contact {
     padding: 2rem 0
 }
 
