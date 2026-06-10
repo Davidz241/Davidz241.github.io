@@ -29,6 +29,31 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 });
 
+// Contact widget behavior
+document.addEventListener('DOMContentLoaded', function(){
+	const toggle = document.getElementById('contact-widget-toggle');
+	const widget = document.getElementById('contact-widget');
+	const close = document.getElementById('cw-close');
+	const openLink = document.getElementById('open-contact');
+	const form = document.getElementById('cw-form');
+	const status = document.getElementById('cw-status');
+
+ 
+
+	function openWidget(){
+		if(widget) widget.setAttribute('aria-hidden','false');
+	}
+	function closeWidget(){
+		if(widget) widget.setAttribute('aria-hidden','true');
+	}
+
+	if(toggle) toggle.addEventListener('click', openWidget);
+	if(openLink) openLink.addEventListener('click', (e)=>{ e.preventDefault(); openWidget(); });
+	if(close) close.addEventListener('click', closeWidget);
+
+
+});
+
 // Video modal / carousel logic
 document.addEventListener('DOMContentLoaded', function(){
 	const thumbs = Array.from(document.querySelectorAll('.thumb'));
@@ -77,3 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	player.addEventListener('mouseleave', startAuto);
 	modal.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
 });
+
+
+
+

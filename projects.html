@@ -16,6 +16,22 @@
 </head>
 
 <body>
+    <header class="site-header">
+        <div img="image.png " class="container header-inner">
+            <h1 class="logo" href="" id="selection-Module">David Zinnatullin</h1>
+            <nav class="nav" id="nav">
+                <form action="">
+                    <button type="submit" class="btn">About</button>
+                </form>
+                <form action="projects.html" target="_self">
+                    <button type="submit" class="btn">Projects</button>
+                </form>
+                <button id="contact-widget-toggle" class="btn">Contact</button>
+            </nav>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </header>
+
 
     <div class="container">
         <h1>Projects</h1>
@@ -23,42 +39,60 @@
         <p>Klicke ein Vorschaubild, um die Kurzvideos als Overlay durchlaufen zu lassen.</p>
 
         <div class="gallery">
-            <div class="thumb" data-video="./videos/Cat.mp4">
-                <img src="image.png" alt="School Project">
+            <div class="thumb" data-video="../videos/Cat.mp4">
+                <img src="../images/image.png" alt="School Project">
                 <div class="thumb-label">First Time Unreal Engine (School Project)</div>
             </div>
 
-            <div class="thumb" data-video=./videos/Cat.mp4>
-                <img src="image.png" alt="Entry Project">
+            <div class="thumb" data-video=../videos/Cat.mp4>
+                <img src="../images/image.png" alt="Entry Project">
                 <div class="thumb-label">Entry Project HFU</div>
             </div>
 
-            <div class="thumb" data-video=./videos/Cat.mp4>
-                <img src="image.png" alt="Sound">
+            <div class="thumb" data-video=../videos/Cat.mp4>
+                <img src="../images/image.png" alt="Sound">
                 <div class="thumb-label">Sound Project (Basics in immersive game audio)</div>
             </div>
-              <div class="thumb" data-video=./videos/Cat.mp4>
-                <img src="image.png" alt="Sound">
+            <div class="thumb" data-video=../videos/Cat.mp4>
+                <img src="../images/image.png" alt="Sound">
                 <div class="thumb-label"></div>
             </div>
-          
 
 
-          
+
+
+        </div>
+
+        <!-- Video modal / overlay -->
+        <div id="video-modal" class="video-modal" aria-hidden="true">
+            <div class="vm-backdrop" data-action="close"></div>
+            <div class="vm-content">
+                <button class="vm-close" aria-label="Close" data-action="close">✕</button>
+                <video id="project-player" controls playsinline muted></video>
+                <div class="vm-controls">
+                    <button id="vm-prev" class="vm-btn">‹ Prev</button>
+                    <button id="vm-next" class="vm-btn">Next ›</button>
                 </div>
+            </div>
+        </div>
 
-                <!-- Video modal / overlay -->
-                <div id="video-modal" class="video-modal" aria-hidden="true">
-                    <div class="vm-backdrop" data-action="close"></div>
-                    <div class="vm-content">
-                        <button class="vm-close" aria-label="Close" data-action="close">✕</button>
-                        <video id="project-player" controls playsinline muted></video>
-                        <div class="vm-controls">
-                            <button id="vm-prev" class="vm-btn">‹ Prev</button>
-                            <button id="vm-next" class="vm-btn">Next ›</button>
-                        </div>
-                    </div>
-                </div>
+       
+
+        <div id="contact-widget" class="contact-widget" aria-hidden="true">
+            <div class="cw-header">
+                <strong>Contact Information</strong>
+                <button id="cw-close" class="cw-close" aria-label="Schließen">✕</button>
+            </div>
+            <form>
+                <p></p>
+                <label>Email</label>
+                <address>Zinnatullin.da@gmail.com</address>
+                <label>Mobile</label>
+                <address>017670316932</address>
+            </form>
+        </div>
+
+
 
 </body>
 

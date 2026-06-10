@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Basic Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
         <header class="site-header">
             <div img = "image.png " class="container header-inner">
-                <a class="logo" href="#">David Zinnatullin</a>
+                <h1 class="logo" id="selection-Module" >David Zinnatullin</h1>
                 <nav class="nav" id="nav">
-                    <a href="#about">About</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="contact.html">Contact</a>
+                    <form action="">
+                    <button  type="submit" class="btn">About</button>
+                    </form>
+                    <form action="projects.html" target="_self">
+                    <button type="submit" class="btn">Projects</button>
+                    </form>
+                    <button id="contact-widget-toggle" class="btn">Contact</button>
                 </nav>
                 <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
             </div>
@@ -22,7 +28,7 @@
             <section class="hero">
                 <div class="container">
                     <h1>David Zinnatullin</h1>
-                    <p class="lead">Hey, I Study Games and Immersive Mediea at HFU in Furtwangen</p>
+                    <p class="lead">Hey, I Study Games and Immersive Media at HFU in Furtwangen</p>
                     <p><a class="btn" href="projects.html">Go to projects</a></p>
                 </div>
             </section>
@@ -30,7 +36,24 @@
 
         </main>
 
-   
+                <!-- Contact widget trigger and widget markup -->
+              
+
+                <div id="contact-widget" class="contact-widget" aria-hidden="true">
+                    <div class="cw-header">
+                        <strong>Contact Information</strong>
+                        <button id="cw-close" class="cw-close" aria-label="Schließen">✕</button>
+                    </div>
+                    <form >
+                        <p></p>
+                        <label>Email</label>
+                        <address>Zinnatullin.da@gmail.com</address>
+                        <label>Mobile</label>
+                        <address>017670316932</address>
+                    </form>
+                </div>
+
+
 
         <script src="script.js"></script>
 </body>
