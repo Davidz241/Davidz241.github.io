@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* small page-specific reset for demo */
+        body {
+            padding: 1.25rem
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Projects</h1>
+
+        <p>Klicke ein Vorschaubild, um die Kurzvideos als Overlay durchlaufen zu lassen.</p>
+
+        <div class="gallery">
+            <div class="thumb" data-video="./videos/Cat.mp4">
+                <img src="image.png" alt="School Project">
+                <div class="thumb-label">First Time Unreal Engine (School Project)</div>
+            </div>
+
+            <div class="thumb" data-video=./videos/Cat.mp4>
+                <img src="image.png" alt="Entry Project">
+                <div class="thumb-label">Entry Project HFU</div>
+            </div>
+
+            <div class="thumb" data-video=./videos/Cat.mp4>
+                <img src="image.png" alt="Sound">
+                <div class="thumb-label">Sound Project (Basics in immersive game audio)</div>
+            </div>
+              <div class="thumb" data-video=./videos/Cat.mp4>
+                <img src="image.png" alt="Sound">
+                <div class="thumb-label"></div>
+            </div>
+          
+
+
+          
+                </div>
+
+                <!-- Video modal / overlay -->
+                <div id="video-modal" class="video-modal" aria-hidden="true">
+                    <div class="vm-backdrop" data-action="close"></div>
+                    <div class="vm-content">
+                        <button class="vm-close" aria-label="Close" data-action="close">✕</button>
+                        <video id="project-player" controls playsinline muted></video>
+                        <div class="vm-controls">
+                            <button id="vm-prev" class="vm-btn">‹ Prev</button>
+                            <button id="vm-next" class="vm-btn">Next ›</button>
+                        </div>
+                    </div>
+                </div>
+
+</body>
+
+</html>
