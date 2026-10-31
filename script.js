@@ -42,8 +42,8 @@ const projects = [
 /* ===== Übersetzungen / Translations ===== */
 const i18n = {
   de: {
-    title: "Zinnatullin – Portfolio", nav_projects: "Projekte", nav_about: "Über mich", nav_career: "Werdegang", nav_contact: "Kontakt",
-    h1: "Spiele und Sound, die man spürt.",
+    title: "Zinnatullin – Portfolio", nav_projects: "Projekte", nav_about: "Über mich", nav_career: "Projekt timeline", nav_contact: "Kontakt",
+    h1: "",
     hero_p: "Hey, ich bin David Zinnatullin. Ich bin Student an der Hochschule Furtwangen (HFU) und interessiere mich für Game-Entwicklung und immersives Game-Audio.",
     btn_projects: "Projekte ansehen", btn_contact: "Kontakt aufnehmen", h_projects: "Projekte", h_about: "Über mich", photo: "Ich",
     about_p1: "Ich studiere an der Hochschule Furtwangen (HFU) und entwickle Spiele-Projekte. Mich begeistert, wie Bild und Ton zusammen eine Welt glaubwürdig machen.",
@@ -54,7 +54,7 @@ const i18n = {
     sk2_p: "Basics über die Menschliche Auditive Wahrnehmung, FMOD, UE Mega Sounds",
     sk3_h: "Web",
     sk3_p: "HTML, CSS, JavaScript/TypeScript",
-    h_career: "Werdegang",
+    h_career: "Projekt timeline",
     
     t1_h: "Studium, Hochschule Furtwangen (HFU)",  t1_p: "Einstiegsprojekt und Sound Project (Grundlagen in immersivem Game-Audio).",
     t2_h: "Schule",  t2_p: "Erstes Projekt in der Unreal Engine.",
@@ -67,7 +67,7 @@ const i18n = {
     langLabel: "Sprache wechseln", langBtn: "EN", themeLabel: "Farbschema wechseln"
   },
   en: {
-    title: "Zinnatullin – Portfolio", nav_projects: "Projects", nav_about: "About", nav_career: "Background", nav_contact: "Contact",
+    title: "Zinnatullin – Portfolio", nav_projects: "Projects", nav_about: "About", nav_career: "Project Timeline", nav_contact: "Contact",
     h1: "Games and sound you can feel.",
     hero_p: "Hey, I’m David Zinnatullin. I study at Furtwangen University (HFU) and I’m interested in game development and immersive game audio.",
     btn_projects: "View projects", btn_contact: "Get in touch", h_projects: "Projects", h_about: "About me", photo: "Me",
