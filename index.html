@@ -1,59 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-i18n="title">David Zinnatullin – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
-        <header class="site-header">
-            <div img = "image.png " class="container header-inner">
-                <button class="btn" id="selection-Module" >David Zinnatullin</button>
-                <nav class="nav" id="nav">
-                    <form action="">
-                    <button  type="submit" class="btn">About</button>
-                    </form>
-                    <form action="projects.html" target="_self">
-                    <button type="submit" class="btn">Projects</button>
-                    </form>
-                    <button id="contact-widget-toggle" class="btn">Contact</button>
-                </nav>
-                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
-            </div>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="container">
-                   
-                    <p class="lead">Hey, I Study Games and Immersive Media at HFU in Furtwangen</p>
-                    <p><a class="btn" href="projects.html">Go to projects</a></p>
-                </div>
-            </section>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">David Zinnatullin</a>
+  <nav>
+    <a class="l" href="#projekte" data-i18n="nav_projects">Projekte</a><a class="l" href="#ueber-mich" data-i18n="nav_about">Über mich</a><a class="l" href="#erfahrung" data-i18n="nav_career">Werdegang</a><a class="l" href="#kontakt" data-i18n="nav_contact">Kontakt</a>
+    <button id="lang" aria-label="Sprache wechseln">EN</button>
+    <button id="theme" aria-label="Farbschema wechseln">◐</button>
+  </nav>
+</div></header>
 
 
-        </main>
-
-                <!-- Contact widget trigger and widget markup -->
-              
-
-                <div id="contact-widget" class="contact-widget" aria-hidden="true">
-                    <div class="cw-header">
-                        <strong>Contact Information</strong>
-                        <button id="cw-close" class="cw-close" aria-label="Schließen">✕</button>
-                    </div>
-                    <form >
-                        <p></p>
-                        <label>Email</label>
-                        <address>Zinnatullin.da@gmail.com</address>
-                       
-                    </form>
-                </div>
+<main id="top">
+<section class="hero"><div class="wrap">
+  <h1 data-i18n="h1">Spiele und Sound, die man spürt.</h1>
+  <p data-i18n="hero_p">Hey, ich bin David Zinnatullin. Ich bin Student an der Hochschule Furtwangen (HFU) und interessiere mich für Game-Entwicklung und immersives Game-Audio.</p>
+  <div class="btns"><a class="btn primary" href="#projekte" data-i18n="btn_projects">Projekte ansehen</a><a class="btn" href="#kontakt" data-i18n="btn_contact">Kontakt aufnehmen</a></div>
+</div></section>
 
 
+<section id="projekte"><div class="wrap">
+  <h2 data-i18n="h_projects">Projekte</h2>
+  <div class="filters" id="filters" role="group" aria-label="Projekte filtern"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
 
-        <script src="script.js"></script>
+
+<section id="ueber-mich"><div class="wrap">
+  <h2 data-i18n="h_about">Über mich</h2>
+  <div class="about">
+    <div class="portrait" >
+      <img src="../images/ME.webp" alt="David Zinnatullin"> 
+    </div>
+    <div>
+      <p data-i18n="about_p1">Ich studiere an der Hochschule Furtwangen (HFU) und entwickle Spiele-Projekte. Mich begeistert, wie Bild und Ton zusammen eine Welt glaubwürdig machen.</p>
+      <p data-i18n="about_p2">Audio und game Design sind meine Hauptinteressen. Ich suche derzeit nach Möglichkeiten, an immersivem Game-Audio und Sounddesign zu arbeiten.</p>
+      <div class="skills">
+        <div><h3 data-i18n="sk1_h">Game-Entwicklung</h3><p data-i18n="sk1_p">Unreal Engine, Godot Engine</p></div>
+        <div><h3 data-i18n="sk2_h">Audio</h3><p data-i18n="sk2_p">Basics about Human Auditive Perception, FMOD, UE Mega Sounds</p></div>
+        <div><h3 data-i18n="sk3_h">Web</h3><p data-i18n="sk3_p">HTML, CSS, JavaScript</p></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="erfahrung"><div class="wrap">
+  <h2 data-i18n="h_career">Projekt verlauf</h2>
+  <ul class="timeline">
+    <li><h3 data-i18n="t5_h">Studium, Hochschule Furtwangen (HFU)</h3><p data-i18n="t5_p">Projekt 2 (Physical game)</p></li>
+    <li><h3 data-i18n="t4_h">Studium, Hochschule Furtwangen (HFU)</h3><p data-i18n="t4_p">Sound 1 Project.</p></li>
+    <li><h3 data-i18n="t3_h">Studium, Hochschule Furtwangen (HFU)</h3><p data-i18n="t3_p">Theory 2 Project (Audio-Visual Perception).</p></li>
+    <li><h3 data-i18n="t1_h">Studium, Hochschule Furtwangen (HFU)</h3><p data-i18n="t1_p">Einstiegsprojekt.</p></li>
+    <li><h3 data-i18n="t2_h">Schule</h3><p data-i18n="t2_p">Erstes Projekt in der Unreal Engine.</p></li>
+
+  </ul>
+</div></section>
+
+<section id="kontakt"><div class="wrap">
+  <div class="contact">
+    <h2 data-i18n="h_contact">Schreib mir.</h2>
+    <p data-i18n="contact_p">Du hast eine Frage oder möchtest zusammenarbeiten? Ich freue mich auf deine Nachricht.</p>
+    <div class="btns"><a class="btn primary" href="mailto:Zinnatullin.da@gmail.com">Zinnatullin.da@gmail.com</a></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Zinnatullin</div></footer>
+
+<dialog id="dlg" aria-label="Projektdetails">
+  <button class="dclose" id="dclose" aria-label="Schließen">✕</button>
+  <div class="media" id="dmedia"></div>
+  <div class="dbody"><h3 id="dtitle"></h3><p id="dtext"></p><div class="tags" id="dtags"></div></div>
+</dialog>
 </body>
 </html>
