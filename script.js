@@ -2,7 +2,7 @@
 const projects = [
   {
     title: "First Time Unreal Engine",
-    cat: "School",
+    cat: "Game",
     text: { de: "Mein erstes Projekt in der Unreal Engine, entstanden als Schulprojekt.", en: "My first project in Unreal Engine, created as a school project." },
     tags: { de: ["Unreal Engine", "Schulprojekt"], en: ["Unreal Engine", "School project"] },
     poster: "../images/SchoolProject.webp", gif: "", video: "../videos/Project-david.mp4"
@@ -22,18 +22,41 @@ const projects = [
     poster: "../images/Sound2.1.webp", gif: "", video: "../videos/Cat.mp4"
   },
   {
-    title: "Sound Project 1 (HFU)",
-    cat: "Audio",
-    text: { de: "Grundlagen von immersivem Game-Audio.", en: "Basics of immersive game audio." },
-    tags: { de: ["Sounddesign", "Unreal Engine"], en: ["Sound design", "Unreal Engine"] },
-    poster: "../images/Sound2.2.webp", gif: "", video: "../videos/Cat.mp4"
-  },
-  {
     title: "Theory 2 Project (HFU)",
     cat: "Game",
-    text: { de: "Projekt im Rahmen des Theory 2 Moduls an der Hochschule Furtwangen (HFU).", en: "Project as part of the Theory 2 module at Furtwangen University (HFU)." },
+    text: { de: "Projekt immersiver physiologischer Wahrnehmung (HFU).", en: "Project on immersive physiological perception (HFU)." },
     tags: { de: ["HFU", "Studium"], en: ["HFU", "Studies"] },
     poster: "../images/Theory2.webp", gif: "", video: "../videos/Cat.mp4"
+  },
+{
+    title: "Sound Project 1 (HFU)",
+    cat: "Audio",
+    text: { de: "Einfaches Projekt immersiver Audio-Visualer Wahrnehmung (HFU).", en: "Simple project on immersive audio-visual perception (HFU)." },
+    tags: { de: ["Sounddesign", "Unreal Engine"], en: ["Sound design", "Unreal Engine"] },
+    poster: "../images/Sound1.webp", gif: "", video: "../videos/Cat.mp4"
+},
+  {
+    title: "Project 2 (physical game) (HFU)",
+    cat: "Game",
+    text: { de: "Projekt der erstellung eines physischen spiels (HFU).", en: "Project for creating a physical game (HFU)." },
+    tags: { de: ["HFU", "Studium"], en: ["HFU", "Studies"] },
+    poster: "../images/Project2.webp", gif: "", video: "../videos/Cat.mp4"
+  },
+  {
+    title: "Visual 2 Project (HFU)",
+    cat: "Art",
+    text: { de: "Projekt zur visuellen Gestaltung (HFU).", en: "Project on visual design (HFU)." },
+    tags: { de: ["Kunst", "Design"], en: ["Art", "Design"] },
+    poster: "../images/Visual2.webp", 
+    model: "../models/Map 1.glb"
+  },
+  {
+    title: "Project 3 Level (HFU)",
+    cat: "Art",
+    text: { de: "Projekt 3 Level (snippet) (HFU).", en: "Project 3 Level (snippet) (HFU)." },
+    tags: { de: ["Kunst", "Design"], en: ["Art", "Design"] },
+    poster: "../images/Visual2.webp", 
+    model: "../models/Map 1.glb"
   }
 ];
 
@@ -51,18 +74,22 @@ const i18n = {
     sk1_h: "Game-Entwicklung",
     sk1_p: "Unreal Engine, Godot Engine",
     sk2_h: "Audio",
-    sk2_p: "Basics über die Menschliche Auditive Wahrnehmung, FMOD, UE Mega Sounds",
+    sk2_p: "Basics über die Menschliche Auditive Wahrnehmung, FMOD, UE Mega Sounds, ableton, reaper",
     sk3_h: "Web",
     sk3_p: "HTML, CSS, JavaScript/TypeScript",
+    sk4_h: "3D",
+    sk4_p: "Blender",
+    sk5_h: "Programmiersprachen",
+    sk5_p: "C# , Java, GDscript, C++ (grundlagen)",
     h_career: "Projekt timeline",
-    
+    t_time: "",
     t1_h: "Studium, Hochschule Furtwangen (HFU)",  t1_p: "Einstiegsprojekt und Sound Project (Grundlagen in immersivem Game-Audio).",
     t2_h: "Schule",  t2_p: "Erstes Projekt in der Unreal Engine.",
     t3_h: "Studium, Hochschule Furtwangen (HFU)",  t3_p: "Theory 2 Project (Audio-Visual Perception).",
     t4_h: "Studium, Hochschule Furtwangen (HFU)",  t4_p: "Sound 1 Project (Audio-Visuale Wahrnehmung).",
     t5_h: "Studium, Hochschule Furtwangen (HFU)",  t5_p: "Projekt 2 (Physisches Spiel).",
     h_contact: "Schreib mir.", contact_p: "Du hast eine Frage oder möchtest zusammenarbeiten? Ich freue mich auf deine Nachricht.",
-    all: "Alle", cats: { School: "Schule", Game: "Game Projekte", Audio: "Sound Projekte" },
+    all: "Alle", cats: { Art: "Kunstprojekte", Game: "Game Projekte", Audio: "Sound Projekte" },
     open: t => t + " öffnen", preview: t => "Vorschau " + t, close: "Schließen", filter: "Projekte filtern",
     langLabel: "Sprache wechseln", langBtn: "EN", themeLabel: "Farbschema wechseln"
   },
@@ -73,7 +100,11 @@ const i18n = {
     btn_projects: "View projects", btn_contact: "Get in touch", h_projects: "Projects", h_about: "About me", photo: "Me",
     about_p1: "I study at Furtwangen University (HFU) and build game projects. I’m fascinated by how visuals and sound together make a world believable.",
     about_p2: "Audio and game Design are my main interests. I’m happy to explore opportunities to work on immersive game audio and sound design.",
-    sk1_h: "Game development", sk1_p: "Unreal Engine, Godot Engine", sk2_h: "Audio", sk2_p: "Basics about Human Auditive Perception, FMOD, UE Mega Sounds", sk3_h: "Web", sk3_p: "HTML, CSS, JavaScript/TypeScript",
+    sk1_h: "Game development", sk1_p: "Unreal Engine, Godot Engine", 
+    sk2_h: "Audio", sk2_p: "Basics about Human Auditive Perception, FMOD, UE Mega Sounds, ableton, reaper", 
+    sk3_h: "Web", sk3_p: "HTML, CSS, JavaScript/TypeScript",
+    sk4_h: "3D", sk4_p: "Blender, MaterialMaker",
+    sk5_h: "coding languages", sk5_p: "C# , Java, GDscript, C++ (basics)",
     h_career: "Project Timeline", t_time: "", 
     t1_h: "Studies, Furtwangen University (HFU)", t1_p: "Entry project.", 
     t2_h: "School", t2_p: "First project in Unreal Engine.",
@@ -82,7 +113,7 @@ const i18n = {
     t4_h: "Studies, Furtwangen University (HFU)", t4_p: "Sound 1 Project.",
     t5_h: "Studies, Furtwangen University (HFU)", t5_p: "Project 2 (Physical game).",
     h_contact: "Get in touch.", contact_p: "Have a question or want to work together? I’d love to hear from you.",
-    all: "All", cats: { School: "School", Game: "Game Projects", Audio: "Sound Projects" },
+    all: "All", cats: { Art: "Art Projects", Game: "Game Projects", Audio: "Sound Projects" },
     open: t => "Open " + t, preview: t => "Preview of " + t, close: "Close", filter: "Filter projects",
     langLabel: "Switch language", langBtn: "DE", themeLabel: "Toggle colour scheme"
     
@@ -130,12 +161,15 @@ function render() {
     grid.appendChild(b);
   });
 }
-
 function openProject(p) {
   current = p;
-  dmedia.innerHTML = p.video
-    ? `<video src="${esc(p.video)}" poster="${esc(p.poster)}" controls autoplay muted loop playsinline></video>`
-    : (p.gif || p.poster ? `<img src="${esc(p.gif || p.poster)}" alt="">` : `<div class="ph">${icon}</div>`);
+  dmedia.innerHTML = p.model
+    ? `<model-viewer src="${esc(p.model)}" poster="${esc(p.poster)}" alt="3D: ${esc(p.title)}"
+         camera-controls auto-rotate touch-action="pan-y" shadow-intensity="1"
+         environment-image="neutral"></model-viewer>`
+    : p.video
+      ? `<video src="${esc(p.video)}" poster="${esc(p.poster)}" controls autoplay muted loop playsinline></video>`
+      : (p.gif || p.poster ? `<img src="${esc(p.gif || p.poster)}" alt="">` : `<div class="ph">${icon}</div>`);
   document.getElementById('dtitle').textContent = p.title;
   document.getElementById('dtext').textContent = p.text[lang];
   document.getElementById('dtags').innerHTML = p.tags[lang].map(t => `<span>${esc(t)}</span>`).join('');
