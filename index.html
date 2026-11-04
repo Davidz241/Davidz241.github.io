@@ -81,8 +81,15 @@
 
 <dialog id="dlg" aria-label="Projektdetails">
   <button class="dclose" id="dclose" aria-label="Schließen">✕</button>
-  <div class="media" id="dmedia"></div>
-  <div class="dbody"><h3 id="dtitle"></h3><p id="dtext"></p><div class="tags" id="dtags"></div></div>
+  <div class="dlayout">
+    <aside class="dside" id="dside">
+      <h3 id="dtitle"></h3>
+      <p class="dlead" id="dtext"></p>
+      <div class="dlong" id="dlong"></div>
+      <div class="tags" id="dtags"></div>
+    </aside>
+    <div class="media" id="dmedia"></div>
+  </div>
 </dialog>
 </body>
 </html>

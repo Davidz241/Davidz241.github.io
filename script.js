@@ -1,53 +1,60 @@
-
+/* ===== Projekt-Daten =====
+   view bestimmt, was im Overlay links gezeigt wird:
+     view: "video"   -> video: "../videos/xyz.mp4"
+     view: "model"   -> model: "../models/xyz.glb"   (3D-Ansicht, drehbar)
+     view: "images"  -> images: ["../images/a.webp", { src: "../images/b.webp", caption: { de: "…", en: "…" } }]
+                        (Vertical Slice / Bildergalerie mit Pfeilen, Punkten und Tastatur)
+   Ohne view wird automatisch erkannt: model > video > images > poster.
+   poster bleibt immer das Vorschaubild der Kachel. */
 const projects = [
   {
     title: "First Time Unreal Engine",
     cat: "Game",
     text: { de: "Mein erstes Projekt in der Unreal Engine, entstanden als Schulprojekt.", en: "My first project in Unreal Engine, created as a school project." },
     tags: { de: ["Unreal Engine", "Schulprojekt"], en: ["Unreal Engine", "School project"] },
-    poster: "../images/SchoolProject.webp", gif: "", video: "../videos/Project-david.mp4"
+    view: "video", poster: "../images/SchoolProject.webp", gif: "", video: "../videos/Project-david.mp4"
   },
   {
     title: "Entry Project (HFU)",
     cat: "Game",
     text: { de: "Mein Einstiegsprojekt an der Hochschule Furtwangen (HFU).", en: "My entry project at Furtwangen University (HFU)." },
     tags: { de: ["HFU", "Studium"], en: ["HFU", "Studies"] },
-    poster: "../images/image.png", gif: "", video: "../videos/Cat.mp4"
+    view: "video", poster: "../images/image.png", gif: "", video: "../videos/Cat.mp4"
   },
   {
     title: "Sound Project 2 (HFU)",
     cat: "Audio",
     text: { de: "Fortgeschrittenes Projekt in immersivem Game-Audio.", en: "Advanced project in immersive game audio." },
     tags: { de: ["Sounddesign", "Unreal Engine"], en: ["Sound design", "Unreal Engine"] },
-    poster: "../images/Sound2.1.webp", gif: "", video: "../videos/Cat.mp4"
+    view: "video", poster: "../images/Sound2.1.webp", gif: "", video: "../videos/Cat.mp4"
   },
   {
     title: "Theory 2 Project (HFU)",
     cat: "Game",
     text: { de: "Projekt immersiver physiologischer Wahrnehmung (HFU).", en: "Project on immersive physiological perception (HFU)." },
     tags: { de: ["HFU", "Studium"], en: ["HFU", "Studies"] },
-    poster: "../images/Theory2.webp", gif: "", video: "../videos/Cat.mp4"
+    view: "video", poster: "../images/Theory2.webp", gif: "", video: "../videos/Cat.mp4"
   },
 {
     title: "Sound Project 1 (HFU)",
     cat: "Audio",
     text: { de: "Einfaches Projekt immersiver Audio-Visualer Wahrnehmung (HFU).", en: "Simple project on immersive audio-visual perception (HFU)." },
     tags: { de: ["Sounddesign", "Unreal Engine"], en: ["Sound design", "Unreal Engine"] },
-    poster: "../images/Sound1.webp", gif: "", video: "../videos/Cat.mp4"
+    view: "video", poster: "../images/Sound1.webp", gif: "", video: "../videos/Cat.mp4"
 },
   {
     title: "Project 2 (physical game) (HFU)",
     cat: "Game",
     text: { de: "Projekt der erstellung eines physischen spiels (HFU).", en: "Project for creating a physical game (HFU)." },
     tags: { de: ["HFU", "Studium"], en: ["HFU", "Studies"] },
-    poster: "../images/Project2.webp", gif: "", video: "../videos/Cat.mp4"
+    view: "images", images: ["../images/image.webp", "../images/image.webp", "../images/image.webp"]
   },
   {
     title: "Visual 2 Project (HFU)",
     cat: "Art",
     text: { de: "Projekt zur visuellen Gestaltung (HFU).", en: "Project on visual design (HFU)." },
     tags: { de: ["Kunst", "Design"], en: ["Art", "Design"] },
-    poster: "../images/Visual2.webp", 
+    view: "model", poster: "../images/Visual2.webp", 
     model: "../models/Map 1.glb"
   },
   {
@@ -55,7 +62,7 @@ const projects = [
     cat: "Art",
     text: { de: "Projekt 3 Level (snippet) (HFU).", en: "Project 3 Level (snippet) (HFU)." },
     tags: { de: ["Kunst", "Design"], en: ["Art", "Design"] },
-    poster: "../images/Visual2.webp", 
+    view: "model", poster: "../images/Visual2.webp", 
     model: "../models/Map 1.glb"
   }
 ];
@@ -161,24 +168,123 @@ function render() {
     grid.appendChild(b);
   });
 }
-function openProject(p) {
-  current = p;
-  dmedia.innerHTML = p.model
-    ? `<model-viewer src="${esc(p.model)}" poster="${esc(p.poster)}" alt="3D: ${esc(p.title)}"
-         camera-controls auto-rotate touch-action="pan-y" shadow-intensity="1"
-         environment-image="neutral"></model-viewer>`
-    : p.video
-      ? `<video src="${esc(p.video)}" poster="${esc(p.poster)}" controls autoplay muted loop playsinline></video>`
-      : (p.gif || p.poster ? `<img src="${esc(p.gif || p.poster)}" alt="">` : `<div class="ph">${icon}</div>`);
+
+/* ===== Ausführliche Beschreibungen (Overlay, linke Seite) =====
+   Absätze mit \n\n trennen. Texte gerne durch eigene Details ersetzen. */
+const longText = {
+  "First Time Unreal Engine": {
+    de: "Dieses Projekt war mein allererster Kontakt mit der Unreal Engine und entstand im Rahmen eines Schulprojekts. Ich habe dabei die Grundlagen des Editors kennengelernt: Level aufbauen, Assets platzieren, Beleuchtung setzen und erste Spielmechaniken umsetzen.\n\nDas Projekt war für mich der Startpunkt, aus dem mein Interesse an Game-Entwicklung entstanden ist. Es zeigt, wie ich mir die Engine selbstständig erarbeitet habe.",
+    en: "This project was my very first contact with Unreal Engine and was created as a school project. I learned the basics of the editor: building levels, placing assets, setting up lighting and implementing first gameplay mechanics.\n\nIt was the starting point of my interest in game development. It shows how I taught myself the engine."
+  },
+  "Entry Project (HFU)": {
+    de: "Mein Einstiegsprojekt an der Hochschule Furtwangen. Hier ging es darum, in einem kleinen Team den Ablauf eines Spiels zu durchlaufen: von der Idee über den Prototyp bis zur präsentierbaren Version.\n\nIch habe dabei Erfahrung mit Teamarbeit, Zeitplanung und dem Zusammenspiel von Design, Programmierung und Audio gesammelt.",
+    en: "My entry project at Furtwangen University. The goal was to go through the process of making a game in a small team: from the initial idea to a prototype and finally a presentable version.\n\nI gained experience in teamwork, planning and in how design, programming and audio work together."
+  },
+  "Sound Project 2 (HFU)": {
+    de: "Ein fortgeschrittenes Projekt zu immersivem Game-Audio. Im Mittelpunkt stand die Frage, wie Klang einen Raum glaubwürdig macht: Atmosphären, räumliche Positionierung, Reaktion auf das Spielgeschehen und die Mischung der einzelnen Ebenen.\n\nUmgesetzt wurde das Ganze in der Unreal Engine. Ziel war es, dass Spielende den Ton nicht nur hören, sondern die Welt durch ihn fühlen.",
+    en: "An advanced project on immersive game audio. The focus was on how sound makes a space believable: ambiences, spatial positioning, reacting to gameplay and mixing the individual layers.\n\nIt was implemented in Unreal Engine. The aim was for players not just to hear the audio, but to feel the world through it."
+  },
+  "Theory 2 Project (HFU)": {
+    de: "In diesem Projekt habe ich mich mit der audio-visuellen Wahrnehmung des Menschen beschäftigt: Wie verarbeiten wir Bild und Ton, und wie lässt sich dieses Wissen nutzen, um immersivere Spielerlebnisse zu gestalten?\n\nDie theoretischen Grundlagen wurden anschließend praktisch angewendet und getestet.",
+    en: "In this project I explored human audio-visual perception: how we process image and sound, and how this knowledge can be used to design more immersive play experiences.\n\nThe theoretical foundations were then applied and tested in practice."
+  },
+  "Sound Project 1 (HFU)": {
+    de: "Mein erstes Sound-Projekt an der HFU und der Einstieg in immersives Game-Audio. Ich habe die Grundlagen von Sounddesign und der Implementierung in der Unreal Engine kennengelernt.\n\nDas Projekt legte die Basis für meine späteren, komplexeren Audio-Arbeiten.",
+    en: "My first sound project at HFU and my introduction to immersive game audio. I learned the fundamentals of sound design and implementation in Unreal Engine.\n\nThe project laid the foundation for my later, more complex audio work."
+  },
+  "Project 2 (physical game) (HFU)": {
+    de: "Bei diesem Projekt ging es um die Entwicklung eines physischen Spiels. Anders als bei digitalen Spielen musste alles greifbar funktionieren: Regeln, Material, Spielfluss und Balancing.\n\nDurch wiederholtes Testen mit echten Spielenden wurde das Konzept Schritt für Schritt verbessert.",
+    en: "This project was about developing a physical game. Unlike digital games, everything had to work tangibly: rules, materials, game flow and balancing.\n\nThrough repeated playtesting with real players the concept was improved step by step."
+  },
+  "Visual 2 Project (HFU)": {
+    de: "Ein Projekt zur visuellen Gestaltung. Die Szene liegt als 3D-Modell vor und lässt sich hier direkt im Browser drehen und von allen Seiten betrachten.\n\nSchwerpunkte waren Komposition, Formensprache und Materialien.",
+    en: "A project on visual design. The scene is available as a 3D model and can be rotated and viewed from all sides right here in the browser.\n\nThe focus was on composition, shape language and materials."
+  },
+  "Project 3 Level (HFU)": {
+    de: "Ein Ausschnitt aus dem Level meines dritten Projekts an der HFU. Zu sehen ist ein Teil der Spielwelt als 3D-Modell, das du frei drehen und erkunden kannst.\n\nBeim Leveldesign habe ich darauf geachtet, Wegführung, Atmosphäre und Spielbarkeit zu verbinden.",
+    en: "A snippet of the level from my third project at HFU. You can see part of the game world as a 3D model that you can freely rotate and explore.\n\nIn the level design I focused on combining guidance, atmosphere and playability."
+  }
+};
+const longHtml = p => {
+  const t = (longText[p.title] || {})[lang] || '';
+  return t.split(/\n\n+/).filter(Boolean).map(x => `<p>${esc(x)}</p>`).join('');
+};
+function fillInfo(p) {
   document.getElementById('dtitle').textContent = p.title;
   document.getElementById('dtext').textContent = p.text[lang];
+  document.getElementById('dlong').innerHTML = longHtml(p);
   document.getElementById('dtags').innerHTML = p.tags[lang].map(t => `<span>${esc(t)}</span>`).join('');
+}
+
+/* ===== Overlay-Medium: 3D / Video / Bildergalerie ===== */
+let galleryStep = null;
+function pickView(p) {
+  const v = p.view || (p.model ? 'model' : p.video ? 'video' : p.images?.length ? 'images' : 'poster');
+  if (v === 'model' && !p.model) return 'poster';
+  if (v === 'video' && !p.video) return 'poster';
+  if (v === 'images' && !p.images?.length) return 'poster';
+  return v;
+}
+function mediaHtml(p) {
+  switch (pickView(p)) {
+    case 'model':
+      return `<model-viewer src="${esc(p.model)}" poster="${esc(p.poster)}" alt="3D: ${esc(p.title)}"
+         camera-controls auto-rotate touch-action="pan-y" shadow-intensity="1"
+         environment-image="neutral"></model-viewer>`;
+    case 'video':
+      return `<video src="${esc(p.video)}" poster="${esc(p.poster)}" controls autoplay muted loop playsinline></video>`;
+    case 'images':
+      return `<div class="gallery"><div class="gstage"><img class="gimg" alt="">
+          ${p.images.length > 1 ? `<button class="gnav prev" type="button" aria-label="‹">‹</button><button class="gnav next" type="button" aria-label="›">›</button>` : ''}
+        </div>
+        <div class="gbar"><span class="gcap"></span>
+          <div class="gdots">${p.images.length > 1 ? p.images.map((_, i) => `<button type="button" aria-label="${i + 1}"></button>`).join('') : ''}</div>
+        </div></div>`;
+    default:
+      return p.poster || p.gif ? `<img src="${esc(p.gif || p.poster)}" alt="">` : `<div class="ph">${icon}</div>`;
+  }
+}
+function galleryCaption(item) {
+  const c = item.caption;
+  return c ? (typeof c === 'string' ? c : c[lang] || '') : '';
+}
+function initGallery(p) {
+  galleryStep = null;
+  const g = dmedia.querySelector('.gallery');
+  if (!g || pickView(p) !== 'images') return;
+  const items = p.images.map(x => typeof x === 'string' ? { src: x } : x);
+  const img = g.querySelector('.gimg'), cap = g.querySelector('.gcap');
+  const dots = [...g.querySelectorAll('.gdots button')];
+  let i = 0;
+  const show = n => {
+    i = (n + items.length) % items.length;
+    img.src = items[i].src;
+    img.alt = `${p.title} ${i + 1}/${items.length}`;
+    cap.textContent = galleryCaption(items[i]);
+    dots.forEach((d, k) => d.setAttribute('aria-current', k === i));
+  };
+  dots.forEach((d, k) => d.onclick = () => show(k));
+  g.querySelector('.prev')?.addEventListener('click', () => show(i - 1));
+  g.querySelector('.next')?.addEventListener('click', () => show(i + 1));
+  galleryStep = d => items.length > 1 && show(i + d);
+  show(0);
+}
+dlg.addEventListener('keydown', e => {
+  if (!galleryStep) return;
+  if (e.key === 'ArrowLeft') galleryStep(-1);
+  if (e.key === 'ArrowRight') galleryStep(1);
+});
+function openProject(p) {
+  current = p;
+  dmedia.innerHTML = mediaHtml(p);
+  initGallery(p);
+  fillInfo(p);
   dlg.showModal();
 }
 function closeDlg() { dlg.close(); }
 document.getElementById('dclose').onclick = closeDlg;
 dlg.addEventListener('click', e => { if (e.target === dlg) closeDlg(); });
-dlg.addEventListener('close', () => { dmedia.innerHTML = ''; });
+dlg.addEventListener('close', () => { dmedia.innerHTML = ''; galleryStep = null; });
 
 function buildFilters() {
   filters.innerHTML = '';
@@ -204,8 +310,8 @@ function setLang(l) {
   filters.setAttribute('aria-label', T().filter);
   buildFilters(); render();
   if (dlg.open && current) {
-    document.getElementById('dtext').textContent = current.text[lang];
-    document.getElementById('dtags').innerHTML = current.tags[lang].map(t => `<span>${esc(t)}</span>`).join('');
+    fillInfo(current);
+    initGallery(current);
   }
 }
 document.getElementById('lang').onclick = () => setLang(lang === 'de' ? 'en' : 'de');
